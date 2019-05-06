@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Alex Ross</title>
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <!-- Base CSS -->
+  <link rel="stylesheet" href="/css/base.css">
+</head>
+
+<body class="home">
+  <%- include('partials/navbar.ejs'); %>
+  <header id="header">
+      <div class="container section">
+          <div class="row">
+            <h3>Welcome to my workout visualization</h3>
+            <% for (let elem in workoutMap) {  %>
+             <li><%=workoutMap[elem].month%> <%=workoutMap[elem].day%>, <%=workoutMap[elem].timeOfDay%>pm, 
+              <%=workoutMap[elem].distance%> miles, <%=workoutMap[elem].calories%> cals, <%=workoutMap[elem].strides%> strides</li>
+            <%} %>
+          </div>
+      </div>
+  </header>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.sidenav').sidenav();
+    $('.parallax').parallax();
+    $('.tabs').tabs();
+    $('.tooltipped').tooltip();
+    $('.scrollspy').scrollSpy();
+    $('.modal').modal(); 
+  });
+</script>  
+</body>
+</html>

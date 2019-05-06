@@ -1,0 +1,123 @@
+body {
+  background-color: #FFFFFF;
+  font-family: Century Gothic;
+}
+
+/* profile section */
+
+.profile-image { 
+  height:200px;
+  border-radius:50%;
+  margin:2.5rem auto;
+  box-shadow:1px 1px 0.7rem rgba(0,0,0,0.2)
+}
+
+
+.profile-image-shrink { 
+  height:50px;
+  border-radius:50%;
+  margin:auto;
+  padding-top: 10px;
+
+}
+
+.about {
+  font-size: 25px; 
+  width: 75%;
+  margin-left:5%;
+  text-align: left;
+}
+
+.books {
+  font-size: 25px; 
+  width: 75%;
+  margin:auto;
+  text-align: center;
+}
+
+nav {
+  background: red;
+}
+
+h3, ul {
+  margin-top: 10%;
+  font-family: Century Gothic;
+}
+
+body.home nav {
+  position: fixed;
+  z-index: 999;
+}
+
+header#writepub-header{
+  padding-top: 64px;
+}
+
+#mobile-menu {
+  background: #555;
+}
+
+.mainline {
+  font-weight: 700;
+  margin-top: -10px;
+  margin-bottom: 40px;
+}
+
+.midline {
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.subline {
+  font-weight: 300;
+}
+
+.sublist {
+  font-weight: 600;
+}
+
+.more-white {
+  background-color: #F7F7F7;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+
+.buttonContainer {
+  height: 105px;
+  border-top: 1px solid #585858;
+  border-left: 1px solid #585858;
+  background: #ddd;
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.05);
+  border-radius: 2px;
+}
+
+.wholeContainer {
+  border-left: 1px solid #585858;
+  border-right: 1px solid #585858;
+  border-bottom: 1px solid #585858;
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.05);
+  border-radius: 2px;
+}
+
+.listPanel {
+  height: 55px;
+  background: #ddd;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.listText {
+  vertical-align: top;
+  font-weight: bold;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.bottom-padding {
+  padding-bottom: 55px !important;
+}
