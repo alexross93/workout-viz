@@ -21,10 +21,22 @@
       <div class="container section">
           <div class="row">
             <h3>Welcome to my workout visualization</h3>
-            <% for (let elem in workoutMap) {  %>
-             <li><%=workoutMap[elem].month%> <%=workoutMap[elem].day%>, <%=workoutMap[elem].timeOfDay%>pm, 
-              <%=workoutMap[elem].distance%> miles, <%=workoutMap[elem].calories%> cals, <%=workoutMap[elem].strides%> strides</li>
-            <%} %>
+            <table>
+              <tr>
+                <th>Month</th><th>Day</th><th>Time of Day</th><th>Distance</th><th>Calories</th><th>Strides</th>
+              </tr>
+
+              <% for (let elem in workoutMap) {  %>
+              <tr>
+                <td><%=workoutMap[elem].month%></td>
+                <td><%=workoutMap[elem].day%></td>
+                <td><%=workoutMap[elem].timeOfDay%></td>
+                <td><%=workoutMap[elem].distance%></td>
+                <td><%=workoutMap[elem].calories%></td>
+                <td><%=workoutMap[elem].strides%></td>
+              </tr>    
+              <% } %>
+            </table>
           </div>
       </div>
   </header>
