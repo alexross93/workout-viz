@@ -23,17 +23,22 @@
             <h3>Welcome to my workout visualization</h3>
             <table>
               <tr>
-                <th>Month</th><th>Day</th><th>Time of Day</th><th>Distance</th><th>Calories</th><th>Strides</th>
+                <th>Year</th><th>Month</th><th>Day</th><th>Time of Day</th><th>Distance (miles)</th><th>Distance (km)</th><th>Calories</th>
+                <th>Strides</th><th>SPM</th><th>Time</th>
               </tr>
 
               <% for (let elem in workoutMap) {  %>
               <tr>
+                <td><%=workoutMap[elem].year%></td>
                 <td><%=workoutMap[elem].month%></td>
                 <td><%=workoutMap[elem].day%></td>
                 <td><%=workoutMap[elem].timeOfDay%></td>
                 <td><%=workoutMap[elem].distance%></td>
+                <td><%=((workoutMap[elem].distance)*1.609344).toFixed(2)%></td>
                 <td><%=workoutMap[elem].calories%></td>
                 <td><%=workoutMap[elem].strides%></td>
+                <td><%=workoutMap[elem].spm%></td>
+                <td><%=workoutMap[elem].time%></td>
               </tr>    
               <% } %>
             </table>
