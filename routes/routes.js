@@ -33,7 +33,6 @@ router.post('/api/v1/workouts', (req, res, next) => {
 
 //update a workouts in the database
 router.put('/api/v1/workouts', (req, res, next) => {
-  //Person.updateMany({ name: /Stark$/ }, { isDeleted: true });
   console.log(req.body.workouts);
   Workout.updateMany({month: req.params.month},req.body.workouts, function(err, workouts){
     if(err) console.log(err);
