@@ -1,63 +1,83 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Alex Ross</title>
   <!-- font awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <!-- Base CSS -->
   <link rel="stylesheet" href="/css/base.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuex"></script>
 </head>
 
 <body class="home">
-  <%- include('partials/navbar.ejs'); %>
-  <header id="header">
-      <div class="container section">
-          <div class="row">
-            <h3>Welcome to my workout visualization</h3>
-            <table>
-              <tr>
-                <th>Year</th><th>Month</th><th>Day</th><th>Time of Day</th><th>Distance (miles)</th><th>Distance (km)</th><th>Calories</th>
-                <th>Strides</th><th>SPM</th><th>Time</th>
-              </tr>
 
-              <% for (let elem in workoutMap) {  %>
-              <tr>
-                <td><%=workoutMap[elem].year%></td>
-                <td><%=workoutMap[elem].month%></td>
-                <td><%=workoutMap[elem].day%></td>
-                <td><%=workoutMap[elem].timeOfDay%></td>
-                <td><%=workoutMap[elem].distance%></td>
-                <td><%=((workoutMap[elem].distance)*1.609344).toFixed(2)%></td>
-                <td><%=workoutMap[elem].calories%></td>
-                <td><%=workoutMap[elem].strides%></td>
-                <td><%=workoutMap[elem].spm%></td>
-                <td><%=workoutMap[elem].time%></td>
-              </tr>    
-              <% } %>
+  <%- include('partials/navbar.ejs'); %>
+  <div id="content">
+    <header class="header">
+      <div class="container">
+        <div class="row">
+          <h3>Welcome to my workout visualization</h3>
+          <div id="table-container">
+            <table id="maintable">
+              <thead>
+                <tr>
+                  <th>Year</th>
+                  <th>Month</th>
+                  <th>Day</th>
+                  <th>Time of Day</th>
+                  <th>Distance (miles)</th>
+                  <th>Distance (km)</th>
+                  <th>Calories</th>
+                  <th>Strides</th>
+                  <th>SPM</th>
+                  <th>Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for (let elem in workoutMap) {  %>
+                <tr>
+                  <td><%=workoutMap[elem].year%></td>
+                  <td><%=workoutMap[elem].month%></td>
+                  <td><%=workoutMap[elem].day%></td>
+                  <td><%=workoutMap[elem].timeOfDay%></td>
+                  <td><%=workoutMap[elem].distance%></td>
+                  <td><%=((workoutMap[elem].distance)*1.609344).toFixed(2)%></td>
+                  <td><%=workoutMap[elem].calories%></td>
+                  <td><%=workoutMap[elem].strides%></td>
+                  <td><%=workoutMap[elem].spm%></td>
+                  <td><%=workoutMap[elem].time%></td>
+                </tr>
+                <% } %>
+              </tbody>
             </table>
           </div>
+        </div>
       </div>
-  </header>
+    </header>
+  </div>
 
-<!-- Compiled and minified JavaScript -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-<script>
-  $(document).ready(function () {
-    $('.sidenav').sidenav();
-    $('.parallax').parallax();
-    $('.tabs').tabs();
-    $('.tooltipped').tooltip();
-    $('.scrollspy').scrollSpy();
-    $('.modal').modal(); 
-  });
-</script>  
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.sidenav').sidenav();
+      $('.parallax').parallax();
+      $('.tabs').tabs();
+      $('.tooltipped').tooltip();
+      $('.scrollspy').scrollSpy();
+      $('.modal').modal();
+    });
+  </script>
 </body>
+
 </html>

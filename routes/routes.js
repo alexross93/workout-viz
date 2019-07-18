@@ -29,25 +29,27 @@ router.post('/api/v1/workouts', (req, res, next) => {
     if(err) console.log(err);
     else console.log("Workouts added successfully");
   });
-  // Workout.create(req.body).then((workout) => {
-  //   console.log('Workout created: ' + workout);
-  //   res.send(workout);
-  // }).catch(next); 
-
 });
 
 //update a workouts in the database
-router.put('/api/v1/workouts/:id', (req, res, next) => {
-  Workout.findOneAndUpdate({_id: req.params.id}, req.body, {new:true}).then((workout) => {
+router.put('/api/v1/workouts', (req, res, next) => {
+  console.log(req.body.workouts);
+  Workout.updateMany({month: req.params.month},req.body.workouts, function(err, workouts){
+    if(err) console.log(err);
+    else console.log("Workouts updated successfully");
+  });
+  /*Workout.findOneAndUpdate({_id: req.params.id}, req.body, {new:true}).then((workout) => {
     res.send(workout);
-  }).catch(next); 
+  }).catch(next);*/
 });
 
 //delete a workouts in the database
-router.delete('/api/v1/workouts/:id', (req, res, next) => {
-  Workout.findOneAndRemove({_id: req.params.id}).then((workout) => {
-    res.send(workout);
-  }).catch(next); 
+router.delete('/api/v1/workouts', (req, res, next) => {
+  console.log(req.query.month);
+  Workout.deleteMany({month: req.query.month},req.body.workouts, function(err, workouts){
+    if(err) console.log(err);
+    else console.log("Workouts deleted successfully");
+  });
 });
 
 module.exports = router;
