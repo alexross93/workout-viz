@@ -76,3 +76,15 @@ table th {
   z-index: 5;
   background: #fff;
 }
+
+.box {
+  height: 200px;
+  width: 200px;
+  text-align: center;
+}
+.red {
+  background-color: red;
+}
+.green {
+  background-color: green;
+}
