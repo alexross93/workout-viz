@@ -21,24 +21,120 @@
   <%- include('partials/navbar.ejs'); %>
 
   <div id="content">
-    <header class="header">
-      <div class="container">
+    <div class="container">
 
-        <div id="app">
+      <div class="col s12 center">
+        <b>Goal: 30 minutes of cardio on the eliptical machine 4 days a week</b>
+      </div>
+
+      <div class="col s12 center">
+        <div class="input-field">
+          <a href="#addWorkoutModal" class="waves-effect waves-light btn-large red darken-2 modal-trigger">ADD WORKOUT
+            <i class="material-icons right">fitness_center</i>
+          </a>
+        </div>
+      </div>
+
+
+      <div id="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Year</th>
+              <th>Month</th>
+              <th>Day</th>
+              <th>Time of Day</th>
+              <th>Distance (miles)</th>
+              <th>Distance (km)</th>
+              <th>Calories</th>
+              <th>Strides</th>
+              <th>SPM</th>
+              <th>Time (min)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (let elem in workoutMap) {  %>
+            <tr>
+              <td><%=workoutMap[elem].year%></td>
+              <td><%=workoutMap[elem].month%></td>
+              <td><%=workoutMap[elem].day%></td>
+              <td><%=workoutMap[elem].timeOfDay%></td>
+              <td><%=workoutMap[elem].distance%></td>
+              <td><%=((workoutMap[elem].distance)*1.609344).toFixed(2)%></td>
+              <td><%=workoutMap[elem].calories%></td>
+              <td><%=workoutMap[elem].strides%></td>
+              <td><%=workoutMap[elem].spm%></td>
+              <td><%=workoutMap[elem].time%></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  <!-- ADD WORKOUT MODAL -->
+  <div class="modal" id="addWorkoutModal">
+    <div class="modal-content">
+      <form action="/" method="POST" id="workoutForm">
+        <br/><button class="btn grey darken-3">Add workout</button><br/>
+
+        <div class="input-field">
+          <input type="text" value="" id="distance" name="distance" required />
+          <label class="active" for="distance">Distance</label>
+        </div>
+
+        <div class="input-field">
+          <input type="text" value="" id="calories" name="calories" required />
+          <label class="active" for="calories">Calories</label>
+        </div>
+
+        <div class="input-field">
+          <input type="text" value="" id="strides" name="strides" required />
+          <label class="active" for="strides">Strides</label>
+        </div>
+
+        <div class="input-field">
+          <input type="text" value="" id="year" name="year" required />
+          <label class="active" for="year">Year</label>
+        </div>
+
+        <div class="input-field">
+          <input type="text" value="" id="month" name="month" required />
+          <label class="active" for="month">Month</label>
+        </div>
+
+        <div class="input-field">
+          <input type="text" value="" id="day" name="day" required />
+          <label class="active" for="day">Day</label>
+        </div>
+
+        <div class="input-field">
+          <input type="text" value="" id="timeOfDay" name="timeOfDay" required />
+          <label class="active" for="timeOfDay">Time of Day</label>
+        </div>
+
+        <div class="input-field">
+          <input type="text" value="30" id="time" name="time" required />
+          <label class="active" for="time">Time (mins)</label>
+        </div>
+
+        
+        <p class="error red-text center-align"></p>
+      </form>
+    </div>
+  </div>
+
+
+  <!--   <div id="app">
           {{ message }}
         </div>
-
-        <div id="app-2">
-          <span v-bind:title="message">
-            Hover your mouse over me for a few seconds
-            to see my dynamically bound title!
-          </span>
-        </div>
-
-        <div id="app-4">
+        div id="app-4">
           <ol>
             <li v-for="todo in todos">
-              {{ todo.text }}
+              {{ todo.year }}
             </li>
           </ol>
         </div>
@@ -55,65 +151,35 @@
 
         <div id="app-7">
           <ol>
-            <!--
-                Now we provide each todo-item with the todo object
-                it's representing, so that its content can be dynamic.
-                We also need to provide each component with a "key",
-                which will be explained later.
-              -->
-            <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+            <todo-item v-for="item in workouts" v-bind:todo="item" v-bind:key="item.month"></todo-item>
           </ol>
-        </div>
-
-        <div id="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Year</th>
-                <th>Month</th>
-                <th>Day</th>
-                <th>Time of Day</th>
-                <th>Distance (miles)</th>
-                <th>Distance (km)</th>
-                <th>Calories</th>
-                <th>Strides</th>
-                <th>SPM</th>
-                <th>Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% for (let elem in workoutMap) {  %>
-              <tr>
-                <td><%=workoutMap[elem].year%></td>
-                <td><%=workoutMap[elem].month%></td>
-                <td><%=workoutMap[elem].day%></td>
-                <td><%=workoutMap[elem].timeOfDay%></td>
-                <td><%=workoutMap[elem].distance%></td>
-                <td><%=((workoutMap[elem].distance)*1.609344).toFixed(2)%></td>
-                <td><%=workoutMap[elem].calories%></td>
-                <td><%=workoutMap[elem].strides%></td>
-                <td><%=workoutMap[elem].spm%></td>
-                <td><%=workoutMap[elem].time%></td>
-              </tr>
-              <% } %>
-            </tbody>
-          </table>
-        </div>
-      </div>
-  </div>
-  </header>
-  </div>
-
+        </div> -->
   <!-- Compiled and minified JavaScript -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
   <script>
+    var dt = new Date();
+
+    $('#year').val(dt.getFullYear());
+
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    $('#month').val(monthNames[dt.getMonth()]);
+
+    $('#day').val(dt.getDate());
+
+    $('#timeOfDay').val(dt.getHours() + ":" + dt.getMinutes());
+
+
+
     var app = new Vue({
       el: '#app',
       data: {
-        message: 'Learning Vue!'
+        message: 'Testing out some new stuff on this site (learning Vue!)'
       }
     })
 
@@ -127,16 +193,8 @@
     var app4 = new Vue({
       el: '#app-4',
       data: {
-        todos: [{
-            text: 'Get better at JavaScript'
-          },
-          {
-            text: 'Learn Vue'
-          },
-          {
-            text: 'Build something awesome'
-          }
-        ]
+        todos: 'workoutMap'
+
       }
     })
 
@@ -167,19 +225,7 @@
     var app7 = new Vue({
       el: '#app-7',
       data: {
-        groceryList: [{
-            id: 0,
-            text: 'Vegetables'
-          },
-          {
-            id: 1,
-            text: 'Cheese'
-          },
-          {
-            id: 2,
-            text: 'Yogurt'
-          }
-        ]
+        workouts: '<%= workoutMap %>'
       }
     })
 
@@ -192,6 +238,7 @@
       $('.modal').modal();
     });
   </script>
+
 </body>
 
 </html>

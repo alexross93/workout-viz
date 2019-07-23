@@ -8,7 +8,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100px;
-  background-color: black;
+  background-color: red;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -24,13 +24,13 @@ body {
 
 /* Active/current link */
 .sidebar a.active {
-  background-color: #4CAF50;
+  background-color: red;
   color: white;
 }
 
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
-  background-color: #555;
+  background-color: red;
   color: white;
 }
 
@@ -84,7 +84,4 @@ table th {
 }
 .red {
   background-color: red;
-}
-.green {
-  background-color: green;
 }
