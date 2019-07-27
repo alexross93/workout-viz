@@ -10,7 +10,7 @@ exports.index = (req, res) => {
     });
 
       res.render('index', {workoutMap: workoutMap});
-  }).sort( { day: 1 } );
+  }).sort( { order: 1 } );
 }
 
 // create an ebook post
