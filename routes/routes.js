@@ -52,4 +52,6 @@ router.delete('/api/v1/workouts', (req, res, next) => {
   });
 });
 
+router.post('/add', indexController.addWorkout);
+
 module.exports = router;
