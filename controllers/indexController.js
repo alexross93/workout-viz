@@ -1,8 +1,8 @@
 const Workout = require('../models/Workout');
 
 exports.index = (req, res) => {
- 
-  Workout.find({}, function(err, workout) {
+
+  Workout.find({}).sort('order').exec(function(err, workout) {
     var workoutMap = {};
 
     workout.forEach(function(workout) {  
@@ -10,7 +10,7 @@ exports.index = (req, res) => {
     });
 
       res.render('index', {workoutMap: workoutMap});
-  }).sort( { order: 1 } );
+  });
 }
 
 // create an ebook post
