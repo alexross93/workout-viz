@@ -9,11 +9,11 @@ exports.index = (req, res) => {
       workoutMap[workout._id] = workout;
     });
 
-      res.render('index', {workoutMap: workoutMap});
+    res.render('index', {workoutMap: workoutMap});
   });
 }
 
-// create an ebook post
+// create a workout 
 exports.addWorkout = (req, res, next) => {
   var newWorkout = new Workout();
   newWorkout.distance = req.body.distance;
@@ -21,8 +21,12 @@ exports.addWorkout = (req, res, next) => {
     newWorkout.distance  = newWorkout.distance.toString().slice(0,1) + "." 
     + newWorkout.distance.toString().slice(1,4);
   }
-  newWorkout.calories = req.body.calories;
-  newWorkout.strides = req.body.strides;
+
+  var strides = parseInt(newWorkout.distance * 1261);
+  newWorkout.strides = strides;
+  let calories = parseInt(strides) * .091;
+  newWorkout.calories = calories.toString().slice(0,3);
+
   newWorkout.year = req.body.year;
   newWorkout.month = req.body.month;
   newWorkout.day = req.body.day;
