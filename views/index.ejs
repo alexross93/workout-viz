@@ -162,9 +162,9 @@
 
     $('#day').val(dt.getDate());
 
-    $('#timeOfDay').val(dt.getHours() + ":" + dt.getMinutes());
+    $('#timeOfDay').val((dt.getMinutes()<30?dt.getHours()-1:dt.getHours) + ":" + (dt.getMinutes()<30?dt.getMinutes()+30:dt.getMinutes()));
 
-
+/*
 
     var app = new Vue({
       el: '#app',
@@ -217,7 +217,7 @@
       data: {
         workouts: '<%= workoutMap %>'
       }
-    })
+    }) */
 
     $(document).ready(function () {
       $('.sidenav').sidenav();
