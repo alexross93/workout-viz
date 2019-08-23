@@ -162,7 +162,21 @@
 
     $('#day').val(dt.getDate());
 
-    $('#timeOfDay').val((dt.getMinutes()<30?dt.getHours()-1:dt.getHours) + ":" + (dt.getMinutes()<30?dt.getMinutes()+30:dt.getMinutes()));
+    let t = dt.getMinutes();
+    let h = dt.getHours();
+    let st = t;
+
+    if(st<=29){
+      h = h-1;
+      st = st+30;
+    }else if(st>29 && st<40){
+      st = st-30;
+      st= '0'+st.toString();
+    }else if(st>=40){
+      st = st-30;
+    }
+
+    $('#timeOfDay').val(h.toString() + ":" + st.toString());
 
 /*
 
