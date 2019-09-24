@@ -12,6 +12,8 @@ const indexController = require('../controllers/indexController');
 
 router.get('/', indexController.index);
 
+/** AUTH ROUTE */
+
 /**** REST API ROUTES *****/
 
 //get list of workouts from the database 
