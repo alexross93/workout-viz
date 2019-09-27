@@ -1,6 +1,7 @@
 const express = require('express');
 const router = require('express').Router();
 const Workout = require('../models/Workout');
+const FitbitApiClient = require("fitbit-node");
 
 
 /**** CONTROLLER MODULES ****/
@@ -13,6 +14,34 @@ const indexController = require('../controllers/indexController');
 router.get('/', indexController.index);
 
 /** AUTH ROUTE */
+
+// initialize the Fitbit API client
+const client = new FitbitApiClient({
+  clientId: "22B5D4",
+  clientSecret: "a21507946862c9891c42fb044e8e0b15",
+  apiVersion: '1.2' // 1.2 is the default
+});
+
+// redirect the user to the Fitbit authorization page
+router.get("/authorize", (req, res) => {
+  // request access to the user's activity, heartrate, location, nutrion, profile, settings, sleep, social, and weight scopes
+  res.redirect(client.getAuthorizeUrl('activity profile heartrate location sleep', 'http://localhost:3000/callback'));
+});
+
+// handle the callback from the Fitbit authorization flow
+router.get("/callback", (req, res) => {
+  // exchange the authorization code we just received for an access token
+  client.getAccessToken(req.query.code, 'http://localhost:3000/callback').then(result => {
+    // use the access token to fetch the user's profile information
+    client.get("/sleep/date/2019-09-26.json", result.access_token).then(results => {
+      res.send(results[0]);
+    }).catch(err => {
+      res.status(err.status).send(err);
+    });
+  }).catch(err => {
+    res.status(err.status).send(err);
+  });
+});
 
 /**** REST API ROUTES *****/
 

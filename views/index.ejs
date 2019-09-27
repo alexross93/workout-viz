@@ -29,7 +29,7 @@
 
       <div class="col s12 center">
         <div class="input-field">
-            <a href="/authorize" style="text-transform:none" class="waves-effect waves-light btn-large grey darken-3 modal-trigger">LOG IN
+            <a href="/authorize" style="text-transform:none" class="waves-effect waves-light btn-large grey darken-3 modal-trigger"> FITBIT LOGIN
                 <i class="material-icons right">exit_to_app</i>
               </a>
           <a href="#addWorkoutModal" class="waves-effect waves-light btn-large red darken-2 modal-trigger">ADD WORKOUT
@@ -117,33 +117,6 @@
     </div>
   </div>
 
-
-  <!--   <div id="app">
-          {{ message }}
-        </div>
-        div id="app-4">
-          <ol>
-            <li v-for="todo in todos">
-              {{ todo.year }}
-            </li>
-          </ol>
-        </div>
-
-        <div id="app-5">
-          <p>{{ message }}</p>
-          <button v-on:click="reverseMessage">Reverse Message</button>
-        </div>
-
-        <div id="app-6">
-          <p>{{ message }}</p>
-          <input v-model="message">
-        </div>
-
-        <div id="app-7">
-          <ol>
-            <todo-item v-for="item in workouts" v-bind:todo="item" v-bind:key="item.month"></todo-item>
-          </ol>
-        </div> -->
   <!-- Compiled and minified JavaScript -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
@@ -177,61 +150,6 @@
     }
 
     $('#timeOfDay').val(h.toString() + ":" + st.toString());
-
-/*
-
-    var app = new Vue({
-      el: '#app',
-      data: {
-        message: 'Testing out some new stuff on this site (learning Vue!)'
-      }
-    })
-
-    var app2 = new Vue({
-      el: '#app-2',
-      data: {
-        message: 'You loaded this page on ' + new Date().toLocaleString()
-      }
-    })
-
-    var app4 = new Vue({
-      el: '#app-4',
-      data: {
-        todos: 'workoutMap'
-
-      }
-    })
-
-    var app5 = new Vue({
-      el: '#app-5',
-      data: {
-        message: 'Hello Vue.js!'
-      },
-      methods: {
-        reverseMessage: function () {
-          this.message = this.message.split('').reverse().join('')
-        }
-      }
-    })
-
-    var app6 = new Vue({
-      el: '#app-6',
-      data: {
-        message: 'Hello Vue!'
-      }
-    })
-
-    Vue.component('todo-item', {
-      props: ['todo'],
-      template: '<li>{{ todo.text }}</li>'
-    })
-
-    var app7 = new Vue({
-      el: '#app-7',
-      data: {
-        workouts: '<%= workoutMap %>'
-      }
-    }) */
 
     $(document).ready(function () {
       $('.sidenav').sidenav();
