@@ -1,0 +1,86 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Alex Ross</title>
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <!-- Base CSS -->
+  <link rel="stylesheet" href="/css/base.css">
+
+</head>
+
+<body class="home">
+    <%- include('partials/navbar.ejs'); %>
+  <div id="content">
+    <div class="container">
+
+      <div class="col s12 center">
+        <div class="input-field">
+            <a href="/authorize" style="text-transform:none" class="waves-effect waves-light btn-large grey darken-3 modal-trigger"> GET FITBIT DATA
+                <i class="material-icons right">exit_to_app</i>
+              </a>
+        </div>
+      </div>
+
+      TEST - fitbit data from September 26 workout on eliptical
+
+      <div id="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Avg HR</th>
+              <th>Calories</th>
+              <th>Steps</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+            <% for (var elem in results) {  %>
+              <% if (elem == 'steps' || elem == 'calories' || elem == 'averageHeartRate'){ %>
+              <td><%=results[elem] %></td>
+              <% } %>
+            <% } %>
+            </tr>
+          
+          </tbody>
+        </table>
+      </div>
+
+      <!-- <% for (var elem in results) {  %>
+        <%=elem %>: <%=results[elem] %> </br>
+      <% } %> -->
+    </div>
+  </div>
+  </div>
+
+
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+  <script>
+
+    $(document).ready(function () {
+      $('.sidenav').sidenav();
+      $('.parallax').parallax();
+      $('.tabs').tabs();
+      $('.tooltipped').tooltip();
+      $('.scrollspy').scrollSpy();
+      $('.modal').modal();
+    });
+  </script>
+
+</body>
+
+</html>

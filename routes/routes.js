@@ -7,13 +7,15 @@ const FitbitApiClient = require("fitbit-node");
 /**** CONTROLLER MODULES ****/
 
 const indexController = require('../controllers/indexController');
-
+const fitbitController = require('../controllers/fitbitController');
 
 /**** INDEX ROUTES *****/
 
 router.get('/', indexController.index);
 
-/** AUTH ROUTE */
+/** FITBIT ROUTE */
+
+router.get('/fitbit', fitbitController.fitbit);
 
 // initialize the Fitbit API client
 const client = new FitbitApiClient({
@@ -33,8 +35,22 @@ router.get("/callback", (req, res) => {
   // exchange the authorization code we just received for an access token
   client.getAccessToken(req.query.code, 'http://localhost:3000/callback').then(result => {
     // use the access token to fetch the user's profile information
-    client.get("/sleep/date/2019-09-26.json", result.access_token).then(results => {
-      res.send(results[0]);
+    client.get("/activities/date/2019-09-26.json", result.access_token).then(results => {
+      //res.send(results[0]);
+      const acts = results[0].activities[0]
+      // var newArr = []
+      // for (var elem in acts) {
+      //    if (elem == 'steps' || elem == 'calories' || elem == 'duration' || elem == 'averageHeartRate'){
+      //      console.log(elem + ': ' + acts[elem])
+      //      newArr.push(elem)
+      //    }
+      // }
+
+      // newArr.forEach(function(elem) {
+      //   console.log(elem + '--: ' + newArr[elem])
+      // });
+
+      res.render('fitbit', { results: acts });
     }).catch(err => {
       res.status(err.status).send(err);
     });
