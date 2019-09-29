@@ -1,4 +1,4 @@
 
 exports.fitbit = (req, res) => {
-    res.render('fitbit', {results: true});
+    res.render('fitbit', {results: false});
 }

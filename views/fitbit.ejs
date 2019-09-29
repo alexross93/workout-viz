@@ -29,35 +29,34 @@
               </a>
         </div>
       </div>
+      <div>
+      <% if (results) { %>
+          TEST - Fitbit data from my September 26 workout on eliptical
 
-      TEST - fitbit data from September 26 workout on eliptical
-
-      <div id="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Avg HR</th>
-              <th>Calories</th>
-              <th>Steps</th>
-            </tr>
-          </thead>
-          <tbody>
-
-            <tr>
-            <% for (var elem in results) {  %>
-              <% if (elem == 'steps' || elem == 'calories' || elem == 'averageHeartRate'){ %>
-              <td><%=results[elem] %></td>
-              <% } %>
-            <% } %>
-            </tr>
-          
-          </tbody>
-        </table>
+          <div id="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Avg HR</th>
+                  <th>Calories</th>
+                  <th>Steps</th>
+                </tr>
+              </thead>
+              <tbody>
+    
+                <tr>
+                <% for (var elem in results) {  %>
+                  <% if (elem == 'steps' || elem == 'calories' || elem == 'averageHeartRate'){ %>
+                  <td><%=results[elem] %></td>
+                  <% } %>
+                <% } %>
+                </tr>
+              
+              </tbody>
+            </table>
+          </div>
+      <% } %>
       </div>
-
-      <!-- <% for (var elem in results) {  %>
-        <%=elem %>: <%=results[elem] %> </br>
-      <% } %> -->
     </div>
   </div>
   </div>
