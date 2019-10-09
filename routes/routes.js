@@ -35,22 +35,17 @@ router.get("/callback", (req, res) => {
   // exchange the authorization code we just received for an access token
   client.getAccessToken(req.query.code, 'http://localhost:3000/callback').then(result => {
     // use the access token to fetch the user's profile information
-    client.get("/activities/date/2019-09-26.json", result.access_token).then(results => {
+    client.get("/activities/date/2019-10-04.json", result.access_token).then(results => {
+      let actives = results[0].activities[0]
+
+      let steps = actives['steps']
+      let distance = Math.round( (steps/1245) * 10 ) / 10;
+      console.log(distance)
+
       //res.send(results[0]);
-      const acts = results[0].activities[0]
-      // var newArr = []
-      // for (var elem in acts) {
-      //    if (elem == 'steps' || elem == 'calories' || elem == 'duration' || elem == 'averageHeartRate'){
-      //      console.log(elem + ': ' + acts[elem])
-      //      newArr.push(elem)
-      //    }
-      // }
-
-      // newArr.forEach(function(elem) {
-      //   console.log(elem + '--: ' + newArr[elem])
-      // });
-
-      res.render('fitbit', { results: acts });
+      res.render('fitbit', { results: actives, distance: distance });
+      //fitbitController.fitbit( {results: actives} )
+      
     }).catch(err => {
       res.status(err.status).send(err);
     });

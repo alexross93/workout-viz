@@ -40,6 +40,7 @@
                   <th>Avg HR</th>
                   <th>Calories</th>
                   <th>Steps</th>
+                  <th>Distance (km)</th>
                 </tr>
               </thead>
               <tbody>
@@ -50,6 +51,7 @@
                   <td><%=results[elem] %></td>
                   <% } %>
                 <% } %>
+                <td><%=distance %></td>
                 </tr>
               
               </tbody>
@@ -69,7 +71,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
   <script>
-
+    
     $(document).ready(function () {
       $('.sidenav').sidenav();
       $('.parallax').parallax();
