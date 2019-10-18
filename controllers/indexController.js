@@ -41,10 +41,7 @@ exports.addWorkout = (req, res, next) => {
   if(st<10){
     st= '0'+st.toString();
   }
-
-  console.log(dt.getHours.toString() + ":" + dt.getMinutes.toString())
-  console.log(h.toString() + ":" + st.toString())
-
+  
   newWorkout.year = '2019';
   newWorkout.month = req.body.month;
   newWorkout.day = req.body.day;
