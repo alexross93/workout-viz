@@ -26,17 +26,35 @@ exports.addWorkout = (req, res, next) => {
   newWorkout.strides = strides;
   let calories = parseInt(strides) * .091;
   newWorkout.calories = calories.toString().slice(0,3);
+  
+  let dt = new Date();
+  let t = dt.getMinutes();
+  t = t - 10
+  let h = dt.getHours();
+  let st = t - req.body.time;
 
-  newWorkout.year = req.body.year;
+  if(st<0){
+    h = h-1;
+    st = st+60;
+  }
+  
+  if(st<10){
+    st= '0'+st.toString();
+  }
+
+  console.log(dt.getHours.toString() + ":" + dt.getMinutes.toString())
+  console.log(h.toString() + ":" + st.toString())
+
+  newWorkout.year = '2019';
   newWorkout.month = req.body.month;
   newWorkout.day = req.body.day;
-  newWorkout.timeOfDay = req.body.timeOfDay;
+  newWorkout.timeOfDay = h.toString() + ":" + st.toString();
   newWorkout.time = req.body.time;
   var stepsPerMin = newWorkout.strides/newWorkout.time;
   newWorkout.spm = stepsPerMin.toString().substring(0,3);
 
   newWorkout.save().then((newWorkout) => {
-    console.log('New workout created: ' + newWorkout);
+    // console.log('New workout created: ' + newWorkout);
     res.redirect('back');
   });
 

@@ -25,6 +25,7 @@
 
       <div class="col s12 center">
         <b>Goal: 30 minutes of cardio on the eliptical machine 4 days a week</b>
+        
       </div>
 
       <div class="col s12 center">
@@ -79,18 +80,13 @@
         <br/><button class="btn red darken-3">Submit</button><br/>
 
         <div class="input-field">
-          <input type="text" value="" id="distance" name="distance" required />
+          <input type="text" value="500" id="distance" name="distance" required />
           <label class="active" for="distance">Distance</label>
         </div>
 
         <div class="input-field">
-          <input type="text" value="" id="timeOfDay" name="timeOfDay" required />
-          <label class="active" for="timeOfDay">Time of Day</label>
-        </div>
-
-        <div class="input-field">
-          <input type="text" value="" id="day" name="day" required />
-          <label class="active" for="day">Day</label>
+          <input type="text" value="45" id="time" name="time" required />
+          <label class="active" for="time">Time (mins)</label>
         </div>
 
         <div class="input-field">
@@ -99,16 +95,10 @@
         </div>
 
         <div class="input-field">
-          <input type="text" value="" id="year" name="year" required />
-          <label class="active" for="year">Year</label>
-        </div>
-      
-        <div class="input-field">
-          <input type="text" value="30" id="time" name="time" required />
-          <label class="active" for="time">Time (mins)</label>
+          <input type="text" value="" id="day" name="day" required />
+          <label class="active" for="day">Day</label>
         </div>
 
-        
         <p class="error red-text center-align"></p>
       </form>
     </div>
@@ -122,8 +112,6 @@
   <script>
     var dt = new Date();
 
-    $('#year').val(dt.getFullYear());
-
     const monthNames = ["January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"
     ];
@@ -131,22 +119,6 @@
     $('#month').val(monthNames[dt.getMonth()]);
 
     $('#day').val(dt.getDate());
-
-    let t = dt.getMinutes();
-    let h = dt.getHours();
-    let st = t;
-
-    if(st<=29){
-      h = h-1;
-      st = st+30;
-    }else if(st>29 && st<40){
-      st = st-30;
-      st= '0'+st.toString();
-    }else if(st>=40){
-      st = st-30;
-    }
-
-    $('#timeOfDay').val(h.toString() + ":" + st.toString());
 
     $(document).ready(function () {
       $('.sidenav').sidenav();
