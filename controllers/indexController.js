@@ -31,8 +31,9 @@ exports.addWorkout = (req, res, next) => {
   let t = dt.getMinutes();
   let h = dt.getHours();
   let st = t - req.body.time;
+  let hr = h;
   if(st<0){
-    h = h-1;
+    hr = hr-1;
     st = st+60;
   }
   if(st<10){
@@ -42,7 +43,7 @@ exports.addWorkout = (req, res, next) => {
   newWorkout.year = '2019';
   newWorkout.month = req.body.month;
   newWorkout.day = req.body.day;
-  newWorkout.timeOfDay = h.toString() + ":" + st.toString();
+  newWorkout.timeOfDay = hr.toString() + ":" + st.toString();
   newWorkout.time = req.body.time;
   var stepsPerMin = newWorkout.strides/newWorkout.time;
   newWorkout.spm = stepsPerMin.toString().substring(0,3);
