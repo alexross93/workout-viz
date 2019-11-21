@@ -29,7 +29,6 @@ exports.addWorkout = (req, res, next) => {
   
   let dt = new Date();
   let t = dt.getMinutes();
-  t = t - 10
   let h = dt.getHours();
   let st = t - req.body.time;
   if(st<0){
@@ -39,7 +38,6 @@ exports.addWorkout = (req, res, next) => {
   if(st<10){
     st= '0'+st.toString();
   }
-  h = h - 5
   
   newWorkout.year = '2019';
   newWorkout.month = req.body.month;
