@@ -119,6 +119,11 @@
     $('#month').val(monthNames[dt.getMonth()]);
 
     $('#day').val(dt.getDate());
+    let date = new Date();
+    let t = date.getMinutes();
+    let h = date.getHours();
+    console.log('h: ' + h)
+    console.log('t: ' + t)
 
     $(document).ready(function () {
       $('.sidenav').sidenav();
