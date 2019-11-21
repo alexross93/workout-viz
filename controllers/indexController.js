@@ -32,15 +32,14 @@ exports.addWorkout = (req, res, next) => {
   t = t - 10
   let h = dt.getHours();
   let st = t - req.body.time;
-
   if(st<0){
     h = h-1;
     st = st+60;
   }
-  
   if(st<10){
     st= '0'+st.toString();
   }
+  h = h - 5
   
   newWorkout.year = '2019';
   newWorkout.month = req.body.month;
