@@ -31,7 +31,7 @@ exports.addWorkout = (req, res, next) => {
   let t = dt.getMinutes();
   let h = dt.getHours();
   let st = t - req.body.time;
-  let hr = h;
+  let hr = h-4;
   if(st<0){
     hr = hr-1;
     st = st+60;
