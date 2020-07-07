@@ -13,7 +13,7 @@
     "passport-fitbit-oauth2": "^1.0.2"
   },
   "devDependencies": {
-    "electron": "^4.0.4",
+    "electron": "^7.2.4",
     "eslint": "^5.12.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.15.0",
